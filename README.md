@@ -1,6 +1,6 @@
 # Armtal (A custom assembly like language.)
 
-### Note that this is not the final version, this is just V1.
+### Note that this is not the final version, this is just V2.
 
 ## How to write a script
 ### Making a script
@@ -18,13 +18,9 @@ It is very easy. Just put the python file in the same folder as the compiler. Go
 
 ## Program examples
 ### Hello World
-    # There are two methods of doing this in Armtal
-    # First
     out *Hello,world!
     # Spaces are not allowed when outputting a string
-    # Second
-    hello
-
+    
 ### Counting
     # This program counts up
     add 1

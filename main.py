@@ -69,6 +69,9 @@ def var(r, s):
 
 def add(n):
   global Int
+  if n == "int":
+    Int += Int
+    return
   try:
     Int += int(n)
   except ValueError:
@@ -77,6 +80,9 @@ def add(n):
 
 def sub(n):
   global Int
+  if n == "int":
+    Int -= Int
+    return
   try:
     Int -= int(n)
   except ValueError:
@@ -85,6 +91,9 @@ def sub(n):
 
 def mul(n):
   global Int
+  if n == "int":
+    Int *= Int
+    return
   try:
     Int *= int(n)
   except ValueError:
@@ -93,18 +102,35 @@ def mul(n):
 
 def div(n):
   global Int
+  if n == "int":
+    Int /= Int
+    return
   try:
     Int /= int(n)
   except ValueError:
     print(f"ERROR ({lineNum + 1}): Tried to convert string to int. Div command takes int")
     exit()
 
-def hello():
-  global outs
-  outs.append("Hello, world!")
+#def hello():
+#  global outs
+#  outs.append("Hello, world!")
 
-def If(a, r, b, l):
+def If(A, r, B, l):
   global acc
+  if A == "int":
+    a = str(Int)
+  elif A == "acc":
+    a = acc
+  else:
+    a = A
+    
+  if B == "int":
+    b = str(Int)
+  elif B == "acc":
+    b = acc
+  else:
+    b = B
+    
   if r == "==":
     if a == b:
       #acc = "true"
@@ -157,7 +183,7 @@ def run(l):
   if cmds[a[0]][1] == 4:
     cmds[a[0]][0](a[1], a[2], a[3], a[4])
   
-cmds = {"out" : [out, 1], "reg" : [var, 2], "add" : [add, 1], "sub" : [sub, 1], "mul" : [mul, 1], "div" : [div, 1], "hello" : [hello, 0], "if" : [If, 4], "nex" : [nex, 0], "" : [noOp, 0], "noop" : [noOp, 0], "#" : [noOp, 0], "jmp" : [jmp, 1], "wait" : [delay, 1]}
+cmds = {"out" : [out, 1], "reg" : [var, 2], "add" : [add, 1], "sub" : [sub, 1], "mul" : [mul, 1], "div" : [div, 1], "if" : [If, 4], "nex" : [nex, 0], "" : [noOp, 0], "noop" : [noOp, 0], "#" : [noOp, 0], "jmp" : [jmp, 1], "wait" : [delay, 1]}
 
 for m in config["libraries"]:
   mc = importlib.import_module(m)
