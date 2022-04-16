@@ -15,3 +15,46 @@ Make a python script and create all your functions. Make a dictionary called **C
 
 ### Installing a library
 It is very easy. Just put the python file in the same folder as the compiler. Go into the config.json file and add the name of it to the **libraries** list.
+
+## Program examples
+### Hello World
+    # There are two methods of doing this in Armtal
+    # First
+    out str Hello,world!
+    # Spaces are not allowed when outputting a string
+    # Second
+    hello
+
+### Counting
+    # This program counts up
+    add 1
+    out sys int
+    jmp 1
+
+## All Commands
+### out r s
+If r is str then it will output s to the console. if r is sys and s is int/acc it will output the value of that register.
+
+### var r s
+Sets the register of r with the value of s.
+
+### add/mul/sub/div n
+Does the action you chose with int and n
+
+### if a r b l
+If a r (for example ==) b, run line l
+
+### nex
+Don't run the next line
+
+### jmp l
+Jumps to line l
+
+### wait n
+Waits for n seconds
+
+### noop
+Does nothing
+
+### \#
+A comment (doesn't do anything)
