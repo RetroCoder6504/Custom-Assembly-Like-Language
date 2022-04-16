@@ -22,6 +22,8 @@ lineNum = 0
 
 lines = cmd.split("\n")
 
+vars = {}
+
 def out(s):
   
   #global outs
@@ -40,17 +42,25 @@ def out(s):
   """
   if s == "int":
     print(Int)
+    return
   elif s == "acc":
     print(acc)
-  elif s[0] == "^":
+    return
+  for i in vars:
+    if i == s:
+      print(vars[s][1])
+      return
+  if s[0] == "^":
     try:
       int(s[1:len(s)])
     except:
       print(f"ERROR ({lineNum + 1}): Put string as int")
       exit()
     print(s[1:len(s)])
+    return
   elif s[0] == "*":
     print(s[1:len(s)])
+    return
   else:
     print(f"ERROR ({lineNum}): UNKNOWN (108)")
 
@@ -164,6 +174,10 @@ def jmp(n):
 def delay(n):
   time.sleep(int(n))
 
+def Var(n, t, v):
+  global vars
+  vars[n] = [t, v]
+
 def run(l):
   #print(l)
   a = l.split(" ")
@@ -183,7 +197,7 @@ def run(l):
   if cmds[a[0]][1] == 4:
     cmds[a[0]][0](a[1], a[2], a[3], a[4])
   
-cmds = {"out" : [out, 1], "reg" : [var, 2], "add" : [add, 1], "sub" : [sub, 1], "mul" : [mul, 1], "div" : [div, 1], "if" : [If, 4], "nex" : [nex, 0], "" : [noOp, 0], "noop" : [noOp, 0], "#" : [noOp, 0], "jmp" : [jmp, 1], "wait" : [delay, 1]}
+cmds = {"out" : [out, 1], "reg" : [var, 2], "add" : [add, 1], "sub" : [sub, 1], "mul" : [mul, 1], "div" : [div, 1], "if" : [If, 4], "nex" : [nex, 0], "" : [noOp, 0], "noop" : [noOp, 0], "#" : [noOp, 0], "jmp" : [jmp, 1], "wait" : [delay, 1], "var" : [Var, 3]}
 
 for m in config["libraries"]:
   mc = importlib.import_module(m)

@@ -54,3 +54,6 @@ Does nothing
 
 ### \#
 A comment (doesn't do anything)
+
+### var n t v
+Make\set a variable named n with the type of t with the value of v.
