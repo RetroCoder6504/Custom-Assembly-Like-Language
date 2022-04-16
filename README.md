@@ -20,7 +20,7 @@ It is very easy. Just put the python file in the same folder as the compiler. Go
 ### Hello World
     # There are two methods of doing this in Armtal
     # First
-    out str Hello,world!
+    out *Hello,world!
     # Spaces are not allowed when outputting a string
     # Second
     hello
@@ -28,14 +28,14 @@ It is very easy. Just put the python file in the same folder as the compiler. Go
 ### Counting
     # This program counts up
     add 1
-    out sys int
+    out int
     jmp 1
 
 ## All Commands
-### out r s
-If r is str then it will output s to the console. if r is sys and s is int/acc it will output the value of that register.
+### out s
+Output s
 
-### var r s
+### reg r s
 Sets the register of r with the value of s.
 
 ### add/mul/sub/div n
