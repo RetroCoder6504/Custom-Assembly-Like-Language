@@ -24,7 +24,7 @@ lines = cmd.split("\n")
 
 vars = {}
 
-libVars = {}
+#libVars = {}
 
 def out(s):
   
